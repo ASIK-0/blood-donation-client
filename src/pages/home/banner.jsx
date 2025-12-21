@@ -31,14 +31,14 @@ const Banner = () => {
               to="/register"
               className="btn btn-lg rounded-full bg-red-600 hover:bg-red-700 text-white border-none shadow-2xl hover:shadow-red-600/50 px-10 py-5 text-xl font-semibold transition-all hover:scale-105"
             >
-              Join as a Donor
+              Join as a donor
             </Link>
 
             <Link
               to="/search"
               className="btn btn-lg rounded-full bg-white/90 hover:bg-gray-100 dark:bg-gray-800/90 dark:hover:bg-gray-700 text-red-600 dark:text-red-400 border-2 border-red-600 dark:border-red-500 shadow-xl px-10 py-5 text-xl font-semibold transition-all hover:scale-105 backdrop-blur-sm"
             >
-              Search Donors
+              Search donors
             </Link>
           </div>
         </div>

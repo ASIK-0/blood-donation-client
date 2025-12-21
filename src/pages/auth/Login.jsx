@@ -32,7 +32,7 @@ const Login = () => {
     };
 
     return (
-        <div className="bg-gradient-to-br from-red-50 via-pink-50 to-red-50 flex items-center justify-center px-4 py-12">
+        <div className="flex items-center justify-center px-4 py-12">
             <div className="card w-full my-30 max-w-md shadow-2xl bg-white/95 backdrop-blur-md border border-red-100">
                 <div className="card-body p-10">
                     <div>

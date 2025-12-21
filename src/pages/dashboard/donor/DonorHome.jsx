@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SearchDoners = () => {
+const donorHome = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const SearchDoners = () => {
     );
 };
 
-export default SearchDoners;
+export default donorHome;

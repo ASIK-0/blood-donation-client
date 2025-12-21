@@ -42,7 +42,7 @@ const Footer = () => {
             <ul className="space-y-4 text-lg text-white">
               <li><Link to="/" className="hover:text-red-300 transition flex items-center gap-2"><span className="text-red-400">→</span> Home</Link></li>
               <li><Link to="/donation-requests" className="hover:text-red-300 transition flex items-center gap-2"><span className="text-red-400">→</span> Donation Requests</Link></li>
-              <li><Link to="/search" className="hover:text-red-300 transition flex items-center gap-2"><span className="text-red-400">→</span> Search Donors</Link></li>
+              <li><Link to="/search" className="hover:text-red-300 transition flex items-center gap-2"><span className="text-red-400">→</span> Search donors</Link></li>
               <li><Link to="/funding" className="hover:text-red-300 transition flex items-center gap-2"><span className="text-red-400">→</span> Funding</Link></li>
               <li><Link to="/dashboard" className="hover:text-red-300 transition flex items-center gap-2"><span className="text-red-400">→</span> Dashboard</Link></li>
             </ul>

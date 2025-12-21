@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-body {
-  background: rebeccapurple;
-}
+/* body{
+  background: rgba(200, 187, 89, 0.243);
+} */

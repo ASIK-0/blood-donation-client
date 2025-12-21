@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DonorHome = () => {
+const useAxiosSecure = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const DonorHome = () => {
     );
 };
 
-export default DonorHome;
+export default useAxiosSecure;
