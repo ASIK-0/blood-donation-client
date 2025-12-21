@@ -1,11 +1,10 @@
-import React from 'react';
+// useAxios.js
+import axios from "axios";
 
-const useAxios = () => {
-    return (
-        <div>
-            
-        </div>
-    );
-};
+const axiosInstance = axios.create({
+  baseURL: "http://localhost:5000",
+});
+
+const useAxios = () => axiosInstance;
 
 export default useAxios;

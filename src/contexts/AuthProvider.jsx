@@ -60,7 +60,7 @@ const AuthProvider = ({ children }) => {
         setLoading,
         role
     }
-    console.log(role)
+    console.log(user)
     return (
         <div>
             <AuthContext value={authInfo}>

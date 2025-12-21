@@ -28,7 +28,6 @@ const Register = () => {
             })
     }, [])
 
-    console.log(upazilas)
 
     const navigate = useNavigate();
 

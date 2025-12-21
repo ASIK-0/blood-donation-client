@@ -7,7 +7,7 @@ const DashboardLayout = () => {
     return (
         <div className="flex min-h-screen">
             <Sidebar />
-            <main className="flex-1 ml-10">
+            <main className="flex-1">
                 <Outlet />
             </main>
         </div>

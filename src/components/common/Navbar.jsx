@@ -16,7 +16,7 @@ const Navbar = () => {
     const handleLogOut = () => {
         logOut()
             .then(() => toast.success("Logout Successfully"))
-            .catch(() => { });
+            .catch(() => {});
     };
 
     const closeMenu = () => setMenuOpen(false);
@@ -45,9 +45,7 @@ const Navbar = () => {
             <div className="w-11/12 mx-auto py-3">
                 <div className="flex items-center justify-between px-3 md:px-5 bg-gradient-to-br from-red-200 to-red-200 backdrop-blur-xl rounded-3xl shadow-xl border border-red-700">
 
-                    {/* Left */}
                     <div className="flex items-center gap-3">
-                        {/* Hamburger */}
                         <button
                             onClick={() => setMenuOpen(!menuOpen)}
                             className="lg:hidden text-red-800"
@@ -68,21 +66,17 @@ const Navbar = () => {
                             </svg>
                         </button>
 
-                        {/* Logo */}
                         <Link to="/" onClick={closeMenu} className="flex items-center">
                             <img className="w-12 hidden md:block" src={logoImg} alt="" />
                             <img className="h-9 md:h-12" src={logo} alt="Blood Care Logo" />
                         </Link>
                     </div>
 
-                    {/* Desktop Menu */}
                     <div className="hidden lg:flex">
                         <ul className="menu menu-horizontal gap-5 text-lg font-medium">
                             {links}
                         </ul>
                     </div>
-
-                    {/* Right */}
                     <div className="flex items-center gap-3">
                         {user ? (
                             <div className="dropdown dropdown-end">
@@ -145,7 +139,6 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                {/* Mobile Menu */}
                 {menuOpen && (
                     <div className="lg:hidden mt-3 bg-gradient-to-br from-red-100 to-red-300 rounded-2xl shadow-lg border border-red-200">
                         <ul className="menu menu-sm p-4 gap-2 font-semibold text-base">

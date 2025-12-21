@@ -13,9 +13,10 @@ import {
     HandCoins,
     HomeIcon,
 } from "lucide-react";
+import toast from "react-hot-toast";
 
 const Sidebar = () => {
-    const { role } = use((AuthContext))
+    const { role, logOut } = use((AuthContext))
     const [open, setOpen] = useState(false);
     const navLinkStyles = ({ isActive }) =>
         `flex items-center gap-3 px-4 py-3 rounded-lg transition ${isActive
@@ -25,7 +26,13 @@ const Sidebar = () => {
 
     const closeSidebar = () => setOpen(false);
 
-    console.log(role)
+      const handleLogOut = () => {
+        logOut()
+            .then(() => toast.success("Logout Successfully"))
+            .catch(() => { });
+    };
+
+
     return (
         <>
             <button
@@ -86,7 +93,7 @@ const Sidebar = () => {
                             All Requests
                         </NavLink>
                     )}
-                    
+
                     {role === "donor" && (
                         <>
                             <NavLink
@@ -128,10 +135,10 @@ const Sidebar = () => {
                         Profile
                     </NavLink>
 
-                    <button className="w-full flex items-center gap-3 px-4 py-3 text-gray-500 hover:bg-red-50 hover:text-red-600 rounded-lg transition">
+                    <Link to={'/'} onClick={handleLogOut} className="w-full flex items-center gap-3 px-4 py-3 text-gray-500 bg-red-50 hover:text-red-600 rounded-lg transition">
                         <LogOut size={20} />
                         Logout
-                    </button>
+                    </Link>
                 </div>
             </div>
         </>
