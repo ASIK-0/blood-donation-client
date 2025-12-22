@@ -1,4 +1,3 @@
-
 import { Link } from "react-router";
 import { FaUser, FaTint, FaMapMarkerAlt, FaHospital, FaCalendarAlt, FaClock, FaCommentDots } from "react-icons/fa";
 import { use, useEffect, useState } from "react";
@@ -14,7 +13,6 @@ const CreateDonationRequest = () => {
     const [districts, setDistricts] = useState([])
     const [district, setDistrict] = useState('')
     const [upazila, setUpazila] = useState('')
-
 
     useEffect(() => {
         axios.get('/upazilas.json')
@@ -214,7 +212,6 @@ const CreateDonationRequest = () => {
                             </div>
                         </div>
 
-                        {/* Message */}
                         <div>
                             <label className="label">
                                 <span className="label-text font-medium text-gray-700">Request Message <span className="text-red-500">*</span></span>
@@ -231,7 +228,6 @@ const CreateDonationRequest = () => {
                             </div>
                         </div>
 
-                        {/* Submit */}
                         <button
                             type="submit"
                             className="btn btn-lg w-full bg-red-600 hover:bg-red-700 text-white border-none rounded-full shadow-lg text-lg font-semibold"

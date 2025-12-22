@@ -30,7 +30,7 @@ const DonationDetails = () => {
                 toast.error("Failed to load request");
                 setLoading(false);
             });
-    }, [id, user, axiosSecure]);
+    }, [id, user, axiosSecure, authLoading, navigate]);
 
     const handleDonate = () => {
         axiosSecure.patch(`/requests/${id}/donate`, {
@@ -66,7 +66,7 @@ const DonationDetails = () => {
                         ← Go Back
                     </Link>
                 </div>
-                <h2 className="text-xl font-bold text-center my-5 text-red-600">Blood Donation Request</h2>
+                <h2 className="text-xl md:text-4xl font-bold text-center pb-3 my-5 text-red-600">Blood Donation Request</h2>
 
                 <div className="space-y-6 text-lg">
                     <div className="grid md:grid-cols-2 gap-6">

@@ -16,6 +16,7 @@ import Funding from "../pages/funding/Funding";
 import PrivateRoute from "./PrivateRoute";
 import PaymentSuccess from "../pages/Payment/PaymentSuccess";
 import DonationDetails from "../pages/donation/DonationDetails";
+import EditDonationRequest from "../pages/dashboard/donor/EditDonationRequest";
 
 export const router = createBrowserRouter([
   {
@@ -52,7 +53,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "payment-success",
-        element: <PaymentSuccess/>,
+        element: <PaymentSuccess />,
       },
     ]
   },
@@ -69,12 +70,16 @@ export const router = createBrowserRouter([
         element: <Profile />,
       },
       {
+        path: "create-donation-request",
+        element: <CreateDonationRequest />,
+      },
+      {
         path: "my-donation-requests",
         element: <MyDonationRequests />,
       },
       {
-        path: "create-donation-request",
-        element: <CreateDonationRequest />,
+        path: "edit-request/:id",
+        element: <EditDonationRequest />
       },
       {
         path: "all-users",
