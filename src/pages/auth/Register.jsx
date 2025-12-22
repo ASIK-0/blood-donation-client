@@ -87,9 +87,10 @@ const Register = () => {
                 mainPhotoUrl,
                 blood,
                 district,
-                upazila
+                upazila,
+                status: "active"
             }
-            console.log(userData)
+
 
             const result = await createUser(email, password);
             await updateInfo({
@@ -103,7 +104,7 @@ const Register = () => {
                 photoURL: mainPhotoUrl
             });
 
-            await axios.post('http://localhost:5000/users', userData);
+            await axios.post('https://blood-donation-server-lilac.vercel.app/users', userData);
             toast.success("Account created successfully!");
             navigate("/");
 

@@ -13,6 +13,9 @@ import DashboardHome from "../pages/dashboard/DashboardHome/DashboardHome";
 import SearchDonors from "../pages/search/SearchDonors";
 import MyDonationRequests from "../pages/dashboard/donor/MyDonationRequests";
 import Funding from "../pages/funding/Funding";
+import PrivateRoute from "./PrivateRoute";
+import PaymentSuccess from "../pages/Payment/PaymentSuccess";
+import DonationDetails from "../pages/donation/DonationDetails";
 
 export const router = createBrowserRouter([
   {
@@ -39,11 +42,23 @@ export const router = createBrowserRouter([
         path: "donation-requests",
         element: <DonationRequests />
       },
+      {
+        path: "donation-requests/:id",
+        element: <DonationDetails />
+      },
+      {
+        path: "funding",
+        element: <Funding />,
+      },
+      {
+        path: "payment-success",
+        element: <PaymentSuccess/>,
+      },
     ]
   },
   {
     path: 'dashboard',
-    element: <DashboardLayout />,
+    element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
     children: [
       {
         path: '/dashboard',
@@ -51,11 +66,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "profile",
-        element: <Profile/>,
-      },
-      {
-        path: "funding",
-        element: <Funding/>,
+        element: <Profile />,
       },
       {
         path: "my-donation-requests",

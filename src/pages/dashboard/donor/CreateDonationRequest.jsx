@@ -5,11 +5,11 @@ import { use, useEffect, useState } from "react";
 import { AuthContext } from "../../../contexts/AuthContext";
 import axios from "axios";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import toast from "react-hot-toast";
 
 const CreateDonationRequest = () => {
     const { user } = use(AuthContext)
     const axiosSecure = useAxiosSecure()
-
     const [upazilas, setUpazilas] = useState([])
     const [districts, setDistricts] = useState([])
     const [district, setDistrict] = useState('')
@@ -58,11 +58,11 @@ const CreateDonationRequest = () => {
             donation_status: 'pending'
         }
         axiosSecure.post('/requests', formData)
-        .then(res => {
-            alert(res.data.insertedId)
+        .then(() => {
+             toast.success('Your donation request successfull')
         }).catch(err=> console.log(err))
 
-        console.log(formData)
+        // console.log(formData)
     }
     return (
         <div className="min-h-screen my-10 px-4">

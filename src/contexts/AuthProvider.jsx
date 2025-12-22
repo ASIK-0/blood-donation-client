@@ -8,7 +8,9 @@ import axios from 'axios';
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [roleLoading, setRoleLoading] = useState(true)
     const [role, setRole] = useState('')
+    const [userStatus, setUserStatus] = useState('')
 
     const createUser = (email, password) => {
         setLoading(true)
@@ -34,6 +36,7 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
             setLoading(false)
+
         });
 
         return () => {
@@ -43,9 +46,11 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         if (!user) return;
-        axios.get(`http://localhost:5000/users/role/${user.email}`)
+        axios.get(`https://blood-donation-server-lilac.vercel.app/users/role/${user.email}`)
             .then(res => {
                 setRole(res.data.role)
+                setUserStatus(res.data.status)
+                setRoleLoading(false)
             })
     }, [user])
 
@@ -57,10 +62,11 @@ const AuthProvider = ({ children }) => {
         user,
         setUser,
         loading,
+        roleLoading,
         setLoading,
-        role
+        role,
+        userStatus
     }
-    console.log(user)
     return (
         <div>
             <AuthContext value={authInfo}>

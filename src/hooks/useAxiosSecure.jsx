@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router';
 import { AuthContext } from '../contexts/AuthContext';
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: 'https://blood-donation-server-lilac.vercel.app'
 })
 
 const useAxiosSecure = () => {
@@ -31,8 +31,6 @@ const useAxiosSecure = () => {
                         navigate('/login')
                     })
             }
-
-
             return Promise.reject(error);
         })
 

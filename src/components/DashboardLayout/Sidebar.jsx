@@ -115,15 +115,6 @@ const Sidebar = () => {
                             </NavLink>
                         </>
                     )}
-
-                    <NavLink
-                        to="/dashboard/funding"
-                        className={navLinkStyles}
-                        onClick={closeSidebar}
-                    >
-                        <HandCoins size={20} />
-                        Funding
-                    </NavLink>
                 </nav>
                 <div className="pt-4 border-t border-gray-100 space-y-2">
                     <NavLink

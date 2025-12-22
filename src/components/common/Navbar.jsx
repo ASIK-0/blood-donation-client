@@ -16,7 +16,7 @@ const Navbar = () => {
     const handleLogOut = () => {
         logOut()
             .then(() => toast.success("Logout Successfully"))
-            .catch(() => {});
+            .catch(() => { });
     };
 
     const closeMenu = () => setMenuOpen(false);
@@ -42,8 +42,8 @@ const Navbar = () => {
 
     return (
         <div className="w-full fixed top-0 z-50">
-            <div className="w-11/12 mx-auto py-3">
-                <div className="flex items-center justify-between px-3 md:px-5 bg-gradient-to-br from-red-200 to-red-200 backdrop-blur-xl rounded-3xl shadow-xl border border-red-700">
+            <div className="w-11/12 mx-auto py-6">
+                <div className="flex items-center justify-between py-2 px-3 md:px-5 bg-gradient-to-br from-red-200 to-red-200 backdrop-blur-xl rounded-3xl shadow-xl border border-red-700">
 
                     <div className="flex items-center gap-3">
                         <button
@@ -97,7 +97,7 @@ const Navbar = () => {
                                         </div>
                                     </div>
 
-                                    <div className="hidden md:flex flex-col">
+                                    <div className="flex flex-col">
                                         <span className="text-sm font-bold text-gray-800 max-w-32 truncate">
                                             {user.displayName || "User"}
                                         </span>
@@ -109,11 +109,8 @@ const Navbar = () => {
 
                                 <ul
                                     tabIndex={0}
-                                    className="dropdown-content menu p-3 shadow-2xl bg-red-100 rounded-2xl w-56 md:w-64 border border-red-100 mt-2 z-50"
+                                    className="dropdown-content menu p-3 shadow-2xl bg-red-50 rounded-2xl w-56 md:w-64 border border-red-100 mt-2 z-50"
                                 >
-                                    <li>
-                                        <Link to="/dashboard/my-profile"> <CgProfile /> My Profile</Link>
-                                    </li>
                                     <li>
                                         <Link to="/dashboard"><MdOutlineDashboardCustomize />Dashboard</Link>
                                     </li>
