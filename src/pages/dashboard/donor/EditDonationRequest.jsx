@@ -8,7 +8,7 @@ import { FaUser, FaTint, FaMapMarkerAlt, FaHospital, FaCalendarAlt, FaClock, FaC
 import axios from "axios";
 
 const EditDonationRequest = () => {
-  const { user } = use(AuthContext);
+  const { user, role } = use(AuthContext);
   const axiosSecure = useAxiosSecure();
   const { id } = useParams();
   const navigate = useNavigate();
@@ -27,12 +27,14 @@ const EditDonationRequest = () => {
   }, []);
 
   useEffect(() => {
+    if (!user) return; 
+
     axiosSecure.get(`/requests/${id}`)
       .then(res => {
         const data = res.data;
-        if (data.requester_email !== user.email) {
+         if (data.requester_email !== user.email && role !== "admin") {
           toast.error("You can only edit your own request");
-          navigate("/dashboard/my-donation-requests");
+          navigate();
           return;
         }
         setRequest(data);
@@ -44,7 +46,7 @@ const EditDonationRequest = () => {
         toast.error("Failed to load request");
         setLoading(false);
       });
-  }, [id, user.email, axiosSecure, navigate]);
+  }, [id, user.email, axiosSecure, navigate, user.role]);
 
   const handleUpdate = (e) => {
     e.preventDefault();
@@ -100,7 +102,7 @@ const EditDonationRequest = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="grid md:grid-cols-2 gap-6">
               <input name="recipient_name" defaultValue={request?.recipient_name} required className="input input-bordered w-full" placeholder="Patient Name" />
               <div className="relative">
@@ -163,7 +165,7 @@ const EditDonationRequest = () => {
             </div>
 
             <div className="text-center space-x-4">
-              <button type="submit" className="btn btn-lg bg-green-600 hover:bg-green-700 text-white rounded-full shadow-lg px-12">
+              <button type="submit" className="btn btn-lg bg-red-600 hover:bg-red-700 text-white rounded-full shadow-lg px-12">
                 Update Request
               </button>
               <button type="button" onClick={() => navigate(-1)} className="btn btn-outline btn-error">
