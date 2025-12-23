@@ -7,7 +7,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 
 const CreateDonationRequest = () => {
-    const { user } = use(AuthContext)
+    const { user, userStatus } = use(AuthContext)
     const axiosSecure = useAxiosSecure()
     const [upazilas, setUpazilas] = useState([])
     const [districts, setDistricts] = useState([])
@@ -26,6 +26,25 @@ const CreateDonationRequest = () => {
                 setDistricts(res.data.districts);
             })
     }, [])
+
+    if (userStatus === "blocked") {
+        return (
+            <div className="container mx-auto mt-40 text-center">
+                <div className="max-w-md mx-auto  rounded-2xl p-8">
+                    <h2 className="text-3xl font-bold text-red-600 mb-4">Access Denied</h2>
+                    <p className="text-xl text-gray-700">
+                        Your account has been <span className="font-bold text-red-600">blocked</span> by the admin.
+                    </p>
+                    <p className="mt-4 text-gray-600">
+                        You cannot create donation requests until your account is unblocked.
+                    </p>
+                    <Link to="/dashboard" className="btn btn-outline btn-error mt-6">
+                        Go to Dashboard
+                    </Link>
+                </div>
+            </div>
+        );
+    }
 
     const handleRequest = (e) => {
         e.preventDefault();
@@ -56,9 +75,9 @@ const CreateDonationRequest = () => {
             donation_status: 'pending'
         }
         axiosSecure.post('/requests', formData)
-        .then(() => {
-             toast.success('Your donation request successfull')
-        }).catch(err=> console.log(err))
+            .then(() => {
+                toast.success('Your donation request successfull')
+            }).catch(err => console.log(err))
 
         // console.log(formData)
     }

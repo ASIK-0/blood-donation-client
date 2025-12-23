@@ -17,12 +17,12 @@ A complete **MERN Stack Blood Donation Platform** that connects blood donors wit
 
 ---
 
-## 🔐 Admin Login (For Evaluation)
+## 🔐 admin Login (For Evaluation)
 
 > Use these credentials to explore admin features
 
 * **Email:** `admin@gmail.com`
-* **Password:** `Admin123`
+* **Password:** `admin123`
 
 ---
 
@@ -36,7 +36,7 @@ A complete **MERN Stack Blood Donation Platform** that connects blood donors wit
 
   * 🧑 Donor
   * 🧑‍🤝‍🧑 Volunteer
-  * 👑 Admin
+  * 👑 admin
 
 ---
 
@@ -62,12 +62,12 @@ A complete **MERN Stack Blood Donation Platform** that connects blood donors wit
 
 ---
 
-### 👑 Admin Panel
+### 👑 admin Panel
 
 * View All Users
 * Block / Unblock Users
-* Change User Roles (Donor ↔ Volunteer ↔ Admin)
-* Secure Admin Routes
+* Change User Roles (Donor ↔ Volunteer ↔ admin)
+* Secure admin Routes
 
 ---
 
@@ -109,7 +109,7 @@ A complete **MERN Stack Blood Donation Platform** that connects blood donors wit
 * Express.js
 * MongoDB
 * Mongoose
-* Firebase Admin SDK
+* Firebase admin SDK
 * Stripe Payment Gateway
 
 ---

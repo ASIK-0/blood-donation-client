@@ -3,7 +3,8 @@ import slide1 from '../../assets/images/slide1.png';
 
 const Banner = () => {
   return (
-    <div className="relative py-16 mt-30 md:py-24 lg:py-32 w-11/12 mx-auto rounded-3xl shadow-xl overflow-hidden bg-gradient-to-br from-red-100 to-red-500">
+    <div className="relative py-16 mt-30 md:py-24 lg:py-32 w-11/12 mx-auto rounded-3xl shadow-xl overflow-hidden 
+    bg-gradient-to-br from-red-100 to-red-500">
 
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         <div className="absolute top-10 left-10 text-red-600 text-9xl">🩸</div>

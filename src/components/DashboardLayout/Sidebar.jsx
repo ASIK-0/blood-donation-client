@@ -26,7 +26,7 @@ const Sidebar = () => {
 
     const closeSidebar = () => setOpen(false);
 
-      const handleLogOut = () => {
+    const handleLogOut = () => {
         logOut()
             .then(() => toast.success("Logout Successfully"))
             .catch(() => { });
@@ -67,71 +67,75 @@ const Sidebar = () => {
                     </button>
                 </div>
                 <nav className="flex-1 space-y-2">
-                    <NavLink to="/dashboard" end className={navLinkStyles} onClick={closeSidebar}>
-                        <HomeIcon size={20} />
-                        Dashboard
-                    </NavLink>
+                    <NavLink to={
+                        role === "admin" ? "/dashboard/admin-home" :
+                            role === "volunteer" ? "/dashboard/volunteer-home" :
+                                "/dashboard/home"
+                    } end className={navLinkStyles} onClick={closeSidebar}>
+                    <HomeIcon size={20} />
+                    Dashboard
+                </NavLink>
 
-                    {role === "Admin" && (
-                        <NavLink
-                            to="/dashboard/all-users"
-                            className={navLinkStyles}
-                            onClick={closeSidebar}
-                        >
-                            <Users size={20} />
-                            All Users
-                        </NavLink>
-                    )}
-
-                    {(role === "Admin" || role === "volunteer") && (
-                        <NavLink
-                            to="/dashboard/all-blood-donation-request"
-                            className={navLinkStyles}
-                            onClick={closeSidebar}
-                        >
-                            <FileText size={20} />
-                            All Requests
-                        </NavLink>
-                    )}
-
-                    {role === "donor" && (
-                        <>
-                            <NavLink
-                                to="/dashboard/my-donation-requests"
-                                className={navLinkStyles}
-                                onClick={closeSidebar}
-                            >
-                                <ListOrdered size={20} />
-                                My Requests
-                            </NavLink>
-
-                            <NavLink
-                                to="/dashboard/create-donation-request"
-                                className={navLinkStyles}
-                                onClick={closeSidebar}
-                            >
-                                <PlusCircle size={20} />
-                                Create Request
-                            </NavLink>
-                        </>
-                    )}
-                </nav>
-                <div className="pt-4 border-t border-gray-100 space-y-2">
+                {role === "admin" && (
                     <NavLink
-                        to="/dashboard/profile"
+                        to="/dashboard/all-users"
                         className={navLinkStyles}
                         onClick={closeSidebar}
                     >
-                        <UserCircle size={20} />
-                        Profile
+                        <Users size={20} />
+                        All Users
                     </NavLink>
+                )}
 
-                    <Link to={'/'} onClick={handleLogOut} className="w-full flex items-center gap-3 px-4 py-3 text-gray-500 bg-red-50 hover:text-red-600 rounded-lg transition">
-                        <LogOut size={20} />
-                        Logout
-                    </Link>
-                </div>
+                {(role === "admin" || role === "volunteer") && (
+                    <NavLink
+                        to="/dashboard/all-blood-donation-request"
+                        className={navLinkStyles}
+                        onClick={closeSidebar}
+                    >
+                        <FileText size={20} />
+                        All Requests
+                    </NavLink>
+                )}
+
+                {role === "donor" && (
+                    <>
+                        <NavLink
+                            to="/dashboard/my-donation-requests"
+                            className={navLinkStyles}
+                            onClick={closeSidebar}
+                        >
+                            <ListOrdered size={20} />
+                            My Requests
+                        </NavLink>
+
+                        <NavLink
+                            to="/dashboard/create-donation-request"
+                            className={navLinkStyles}
+                            onClick={closeSidebar}
+                        >
+                            <PlusCircle size={20} />
+                            Create Request
+                        </NavLink>
+                    </>
+                )}
+            </nav>
+            <div className="pt-4 border-t border-gray-100 space-y-2">
+                <NavLink
+                    to="/dashboard/profile"
+                    className={navLinkStyles}
+                    onClick={closeSidebar}
+                >
+                    <UserCircle size={20} />
+                    Profile
+                </NavLink>
+
+                <Link to={'/'} onClick={handleLogOut} className="w-full flex items-center gap-3 px-4 py-3 text-gray-500 bg-red-50 hover:text-red-600 rounded-lg transition">
+                    <LogOut size={20} />
+                    Logout
+                </Link>
             </div>
+        </div >
         </>
     );
 };

@@ -9,7 +9,7 @@ import Profile from "../pages/dashboard/profile/Profile";
 import CreateDonationRequest from "../pages/dashboard/donor/CreateDonationRequest";
 import AllUsers from "../pages/dashboard/admin/AllUsers";
 import AllDonationRequests from "../pages/dashboard/admin/AllDonationRequests";
-import DashboardHome from "../pages/dashboard/DashboardHome/DashboardHome";
+import DashboardHome from "../pages/dashboard/DashboardHome/DashboardRedirect";
 import SearchDonors from "../pages/search/SearchDonors";
 import MyDonationRequests from "../pages/dashboard/donor/MyDonationRequests";
 import Funding from "../pages/funding/Funding";
@@ -17,6 +17,10 @@ import PrivateRoute from "./PrivateRoute";
 import PaymentSuccess from "../pages/Payment/PaymentSuccess";
 import DonationDetails from "../pages/donation/DonationDetails";
 import EditDonationRequest from "../pages/dashboard/donor/EditDonationRequest";
+import DonorHome from "../pages/dashboard/donor/DonorHome";
+import AdminHome from "../pages/dashboard/admin/AdminHome";
+import VolunteerHome from "../pages/dashboard/volunteer/VolunteerHome";
+import DashboardRedirect from "../pages/dashboard/DashboardHome/DashboardRedirect";
 
 export const router = createBrowserRouter([
   {
@@ -62,8 +66,20 @@ export const router = createBrowserRouter([
     element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
     children: [
       {
-        path: '/dashboard',
-        element: <DashboardHome />
+        index: true,
+        element: <DashboardRedirect />
+      },
+      {
+        path: "home",
+        element: <DonorHome />
+      },
+      {
+        path: "admin-home",
+        element: <AdminHome />
+      },
+      {
+        path: "volunteer-home",
+        element: <VolunteerHome />
       },
       {
         path: "profile",

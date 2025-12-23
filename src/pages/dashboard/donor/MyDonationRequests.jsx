@@ -5,6 +5,10 @@ import Loading from "../../../components/common/Loading";
 import { Link } from "react-router";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
+import { MdDeleteForever, MdOutlineRemoveRedEye } from "react-icons/md";
+import { FiEdit, FiEdit2, FiEdit3 } from "react-icons/fi";
+import { ImEye } from "react-icons/im";
+import { FileEdit } from "lucide-react";
 
 const MyDonationRequests = () => {
     const { user, loading: authLoading } = useContext(AuthContext);
@@ -32,7 +36,6 @@ const MyDonationRequests = () => {
     const handleDelete = async (id) => {
         Swal.fire({
             title: "Are you sure?",
-            text: "You won't be able to revert this!",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
@@ -119,13 +122,13 @@ const MyDonationRequests = () => {
                                     <p><strong>Date:</strong> {req.donation_date} | <strong>Time:</strong> {req.donation_time}</p>
                                     <p><strong>Blood:</strong> <span className="text-red-600 font-bold">{req.blood_group}</span></p>
                                 </div>
-                                <div className="mt-4 flex gap-2">
-                                    <Link to={`/donation-requests/${req._id}`} className="btn btn-sm btn-info flex-1">View</Link>
+                                <div className="mt-4 flex gap-6">
+                                    <Link to={`/donation-requests/${req._id}`}><MdOutlineRemoveRedEye className="text-2xl ml-2" />Veiw</Link>
                                     {req.donation_status === "pending" && (
-                                        <>
-                                            <Link to={`/dashboard/edit-request/${req._id}`} className="btn btn-sm btn-warning flex-1">Edit</Link>
-                                            <button onClick={() => handleDelete(req._id)} className="btn btn-sm btn-error flex-1">Delete</button>
-                                        </>
+                                        <div className="flex gap-6">
+                                            <Link to={`/dashboard/edit-request/${req._id}`}><FileEdit className="text-md ml-1" />Edit</Link>
+                                            <button onClick={() => handleDelete(req._id)}><MdDeleteForever className="text-2xl text-red-400 ml-2" />delete</button>
+                                        </div>
                                     )}
                                 </div>
                             </div>
@@ -157,20 +160,20 @@ const MyDonationRequests = () => {
                                 <td>{req.donation_date}<br /><small>{req.donation_time}</small></td>
                                 <td><span className="badge badge-error text-white">{req.blood_group}</span></td>
                                 <td>
-                                    <span className={`badge ${req.donation_status === "pending" ? "badge-warning" :
-                                        req.donation_status === "inprogress" ? "badge-info" :
-                                            req.donation_status === "done" ? "badge-success" : "badge-error"
+                                    <span className={`badge ${req.donation_status === "pending" ? "badge-warning font-bold p-3" :
+                                        req.donation_status === "inprogress" ? "badge-info font-bold p-3" :
+                                            req.donation_status === "done" ? "badge-success font-bold p-3" : "badge-error font-bold p-3"
                                         }`}>
                                         {req.donation_status}
                                     </span>
                                 </td>
-                                <td className="space-x-2">
-                                    <Link to={`/donation-requests/${req._id}`} className="btn btn-sm border border-red-500">View</Link>
+                                <td className="space-x-2 flex mt-2 text-center">
+                                    <Link to={`/donation-requests/${req._id}`}><MdOutlineRemoveRedEye className="text-2xl" /></Link>
                                     {req.donation_status === "pending" && (
-                                        <>
-                                            <Link to={`/dashboard/edit-request/${req._id}`} className="btn btn-sm border border-red-500">Edit</Link>
-                                            <button onClick={() => handleDelete(req._id)} className="btn btn-sm btn-error">Delete</button>
-                                        </>
+                                        <div className="flex gap-2">
+                                            <Link to={`/dashboard/edit-request/${req._id}`}><FileEdit className="text-md" /></Link>
+                                            <button onClick={() => handleDelete(req._id)}><MdDeleteForever className="text-2xl text-red-400" /></button>
+                                        </div>
                                     )}
                                 </td>
                             </tr>
