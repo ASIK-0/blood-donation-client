@@ -82,8 +82,8 @@ const MyDonationRequests = () => {
     if (authLoading) return <Loading />;
 
     return (
-        <div className="p-4 md:p-8 max-w-7xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">My Donation Requests</h2>
+        <div className="p-4 md:p-8 my-10 max-w-7xl mx-auto">
+            <h2 className="text-3xl md:text-4xl text-red-600 font-bold text-center mb-8">My Donation Requests</h2>
 
             <div className="flex flex-wrap justify-center gap-3 mb-8">
                 {["all", "pending", "inprogress", "done", "canceled"].map(status => (
@@ -194,7 +194,7 @@ const MyDonationRequests = () => {
                     <button
                         key={i + 1}
                         onClick={() => setCurrentPage(i + 1)}
-                        className={`btn ${currentPage === i + 1 ? "btn-primary" : "btn-outline"}`}
+                        className={`btn ${currentPage === i + 1 ? "bg-red-500 text-white font-bold" : "btn-outline"}`}
                     >
                         {i + 1}
                     </button>

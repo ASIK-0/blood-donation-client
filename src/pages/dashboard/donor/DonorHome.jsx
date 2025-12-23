@@ -15,16 +15,9 @@ const DonorHome = () => {
 
     return (
         <div className="p-6">
-            <div className="bg-gradient-to-br from-red-900 to-red-300 text-white rounded-2xl p-10 text-center mb-10">
-
-                <div className="absolute inset-0 opacity-30 pointer-events-none">
-                    <div className="absolute top-10 left-69 text-red-900 text-9xl">🩸</div>
-                    <div className="absolute bottom-140 right-20 text-red-500 text-8xl rotate-12">🩸</div>
-                    <div className="absolute top-2/19 right-1/5 text-red-400 text-7xl -rotate-6">🩸</div>
-                    <div className="absolute left-1/3 text-red-600 text-9xl rotate-45">🩸</div>
-                </div>
-                <h1 className="text-4xl text-gray-200 font-bold">Welcome back<span className="text-white font-extrabold text-4xl"> {user?.displayName}</span></h1>
-                <p className="text-xl text-gray-200 mt-3">Thank you for being a lifesaver ❤️</p>
+            <div className="bg-red-700 text-white rounded-2xl p-10 text-center mb-10">
+                <h1 className="text-3xl md:text-4xl font-bold">Welcome back<span className="text-white font-extrabold text-4xl"> {user?.displayName}</span></h1>
+                <p className="md:text-xl text-gray-200 mt-3">Thank you for being a lifesaver ❤️</p>
             </div>
 
             {recentRequests.length > 0 && (
@@ -74,7 +67,7 @@ const DonorHome = () => {
             {recentRequests.length === 0 && (
                 <div className="text-center py-20">
                     <h3 className="text-2xl font-bold text-gray-600">No donation requests yet</h3>
-                    <Link to="/dashboard/create-donation-request" className="btn btn-lg btn-success mt-6">
+                    <Link to="/dashboard/create-donation-request" className="btn btn-lg font-bold rounded-xl text-white bg-red-500 mt-6">
                         Create Your First Request
                     </Link>
                 </div>

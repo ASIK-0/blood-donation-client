@@ -21,6 +21,7 @@ import DonorHome from "../pages/dashboard/donor/DonorHome";
 import AdminHome from "../pages/dashboard/admin/AdminHome";
 import VolunteerHome from "../pages/dashboard/volunteer/VolunteerHome";
 import DashboardRedirect from "../pages/dashboard/DashboardHome/DashboardRedirect";
+import NotFound from "../pages/ErrorPage/NotFound";
 
 export const router = createBrowserRouter([
   {
@@ -106,5 +107,9 @@ export const router = createBrowserRouter([
         element: <AllDonationRequests />,
       }
     ]
-  }
+  },
+  {
+  path: "*",
+  element: <NotFound />
+}
 ]);

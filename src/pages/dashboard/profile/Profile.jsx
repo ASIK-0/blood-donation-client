@@ -220,10 +220,10 @@ const Profile = () => {
                   </button>
                 ) : (
                   <div className="flex gap-2">
-                    <button type="submit" className="btn btn-sm bg-green-600 hover:bg-green-700 text-white rounded-full px-6 shadow-xl">
+                    <button type="submit" className="btn  bg-green-600 hover:bg-green-700 text-white rounded-full px-6 shadow-xl">
                       Save Changes
                     </button>
-                    <button type="button" onClick={() => setEditing(false)} className="btn btn-lg btn-outline btn-error rounded-full px-6">
+                    <button type="button" onClick={() => setEditing(false)} className="btn btn-outline btn-error rounded-full px-6">
                       Cancel
                     </button>
                   </div>
