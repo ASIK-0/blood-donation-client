@@ -39,7 +39,7 @@ const SearchDonors = () => {
     };
 
     return (
-        <div className="container mx-auto py-20 px-4">
+        <div className="container mx-auto py-20 mt-10 px-4">
             <div className="max-w-4xl mx-auto">
                 <h2 className="text-4xl font-bold text-center mb-12 text-red-600">Search Donors</h2>
 
