@@ -1,5 +1,3 @@
-// src/pages/funding/Funding.jsx
-
 import { GiftIcon } from 'lucide-react';
 import { use, useEffect, useState } from 'react';
 import Loading from '../../components/common/Loading';

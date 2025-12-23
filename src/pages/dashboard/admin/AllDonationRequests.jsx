@@ -277,14 +277,14 @@ const AllDonationRequests = () => {
 
                         <div className="flex justify-between items-center">
                             <div className="flex gap-2">
-                                <button className="btn btn-sm btn-ghost text-info">
+                                <Link to={`/donation-requests/${req._id}`} className="btn btn-sm btn-ghost text-info">
                                     <FaEye />
-                                </button>
+                                </Link>
                                 {role === "admin" && (
                                     <>
-                                        <button className="btn btn-sm btn-ghost text-warning">
+                                        <Link to={`/dashboard/edit-request/${req._id}`} className="btn btn-sm btn-ghost text-warning">
                                             <FaEdit />
-                                        </button>
+                                        </Link>
                                         <button
                                             onClick={() => handleDelete(req._id)}
                                             className="btn btn-sm btn-ghost text-error"
